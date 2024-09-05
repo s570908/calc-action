@@ -5,3 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: s570908/calc-action@main
+        with:
+          x: 12
+          y: 3
