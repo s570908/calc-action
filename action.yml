@@ -1,0 +1,6 @@
+name: Calc Action
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Hi, I'm a calculator action!"
+      shell: bash

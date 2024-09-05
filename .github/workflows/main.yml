@@ -1,0 +1,7 @@
+name: Our Workflow
+on: push
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: s570908/calc-action@main
