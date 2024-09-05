@@ -4,7 +4,12 @@ jobs:
   calculate:
     runs-on: ubuntu-latest
     steps:
-      - uses: s570908/calc-action@main
+      - id: calc
+        uses: s570908/calc-action@main
         with:
           x: 12
           y: 3
+      - name: Print results
+        run: |
+          echo "x + y = ${{ steps.calc.outputs.plus }}"
+          echo "x - y = ${{ steps.calc.outputs.minus }}"

@@ -4,10 +4,21 @@ inputs:
     default: 0
   y:
     default: 0
+outputs:
+  plus:
+    value: ${{ steps.plus.outputs.result }}
+  minus:
+    value: ${{ steps.minus.outputs.result }}
 runs:
   using: "composite"
   steps:
     - run: echo "Hi, I'm a calculator action!"
       shell: bash
     - run: echo "x = ${{ inputs.x }}, y = ${{ inputs.y }}"
+      shell: bash
+    - id: plus
+      run: echo "result=$((${{ inputs.x }} + ${{ inputs.y }}))" >> $GITHUB_OUTPUT
+      shell: bash
+    - id: minus
+      run: echo "result=$((${{ inputs.x }} - ${{ inputs.y }}))" >> $GITHUB_OUTPUT
       shell: bash
